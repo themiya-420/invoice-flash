@@ -7,7 +7,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { InvoiceData, InvoiceItem } from '@/types/invoice';
+import { formatCurrency } from '@/types/currencies';
 import LogoUpload from './LogoUpload';
+import ThemeSelector from './ThemeSelector';
+import CurrencySelector from './CurrencySelector';
 
 interface InvoiceFormProps {
   invoice: InvoiceData;
@@ -63,6 +66,18 @@ const InvoiceForm = ({ invoice, onInvoiceChange }: InvoiceFormProps) => {
       <LogoUpload
         currentLogo={invoice.logo}
         onLogoChange={(logo) => updateInvoice({ logo })}
+      />
+
+      {/* Theme Selector */}
+      <ThemeSelector
+        selectedTheme={invoice.theme}
+        onThemeChange={(theme) => updateInvoice({ theme })}
+      />
+
+      {/* Currency Selector */}
+      <CurrencySelector
+        selectedCurrency={invoice.currency}
+        onCurrencyChange={(currency) => updateInvoice({ currency })}
       />
 
       {/* Business Information */}
@@ -233,7 +248,7 @@ const InvoiceForm = ({ invoice, onInvoiceChange }: InvoiceFormProps) => {
                 <div className="md:col-span-2">
                   <Label>Amount</Label>
                   <div className="h-10 px-3 py-2 border border-border rounded-md bg-muted text-muted-foreground flex items-center">
-                    ${item.amount.toFixed(2)}
+                    {formatCurrency(item.amount, invoice.currency)}
                   </div>
                 </div>
                 <div className="md:col-span-1">
@@ -264,7 +279,7 @@ const InvoiceForm = ({ invoice, onInvoiceChange }: InvoiceFormProps) => {
         <div className="space-y-4 max-w-md ml-auto">
           <div className="flex justify-between">
             <span>Subtotal:</span>
-            <span>${invoice.subtotal.toFixed(2)}</span>
+            <span>{formatCurrency(invoice.subtotal, invoice.currency)}</span>
           </div>
           <div className="flex justify-between items-center">
             <Label htmlFor="taxRate">Tax Rate (%):</Label>
@@ -281,12 +296,12 @@ const InvoiceForm = ({ invoice, onInvoiceChange }: InvoiceFormProps) => {
           </div>
           <div className="flex justify-between">
             <span>Tax Amount:</span>
-            <span>${invoice.taxAmount.toFixed(2)}</span>
+            <span>{formatCurrency(invoice.taxAmount, invoice.currency)}</span>
           </div>
           <Separator />
           <div className="flex justify-between text-lg font-semibold">
             <span>Total:</span>
-            <span>${invoice.total.toFixed(2)}</span>
+            <span>{formatCurrency(invoice.total, invoice.currency)}</span>
           </div>
         </div>
       </Card>

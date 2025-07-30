@@ -24,6 +24,7 @@ export interface InvoiceData {
   invoiceDate: string;
   dueDate: string;
   currency: string;
+  theme: string;
 
   // Items
   items: InvoiceItem[];
@@ -51,6 +52,7 @@ export const createEmptyInvoice = (): InvoiceData => ({
   invoiceDate: new Date().toISOString().split('T')[0],
   dueDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
   currency: 'USD',
+  theme: 'modern-blue',
   items: [],
   subtotal: 0,
   taxRate: 0,
