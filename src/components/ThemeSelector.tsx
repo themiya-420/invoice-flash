@@ -38,7 +38,6 @@ const ThemeSelector = ({ selectedTheme, onThemeChange }: ThemeSelectorProps) => 
               <div className="text-2xl">{theme.preview}</div>
               <div className="text-center">
                 <div className="font-medium text-sm">{theme.name}</div>
-                <div className="text-xs opacity-70">{theme.description}</div>
               </div>
             </Button>
           ))}
