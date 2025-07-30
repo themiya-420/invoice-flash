@@ -101,9 +101,9 @@ const Index = () => {
         />
         <meta
           property="og:image"
-          content="https://yourdomain.com/og-image.png"
+          content="https://invoice-flash.themiya.dev/og-image.png"
         />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://invoice-flash.themiya.dev.com" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -114,10 +114,10 @@ const Index = () => {
         />
         <meta
           name="twitter:image"
-          content="https://yourdomain.com/og-image.png"
+          content="https://invoice-flash.themiya.dev/og-image.png"
         />
 
-        <link rel="canonical" href="https://yourdomain.com" />
+        <link rel="canonical" href="https://invoice-flash.themiya.dev" />
 
         {/* Optional: JSON-LD Structured Data */}
         <script type="application/ld+json">
@@ -125,7 +125,7 @@ const Index = () => {
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             name: "InvoiceFlash",
-            url: "https://yourdomain.com",
+            url: "https://invoice-flash.themiya.dev",
             applicationCategory: "BusinessApplication",
             operatingSystem: "All",
             offers: {
